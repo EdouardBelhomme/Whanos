@@ -1,0 +1,73 @@
+name: Whanos
+
+env:
+  MIRROR_URL: git@github.com:EpitechPromo2026/B-DOP-500-BDX-5-1-whanos-edouard.belhomme.git
+
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Check changed files
+        id: check_files
+        run: |
+          echo "::set-output name=files::$(git diff --name-only HEAD^ HEAD)"
+
+      - name: Setup C environment
+        if: contains(steps.check_files.outputs.files, '.c') || contains(steps.check_files.outputs.files, '.h')
+        run: |
+          sudo apt-get update
+          sudo apt-get install gcc-13.2 
+          sudo apt-get install make
+          echo "COMPILER=gcc-13" >> $GITHUB_ENV
+          make
+  
+      - name: Set up Java environment
+        if: contains(steps.check_files.outputs.files, 'pom.xml')
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y maven openjdk-21-jdk
+          echo "JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64" >> $GITHUB_ENV
+    
+      - name: Set up JavaScript environment
+        if: contains(steps.check_files.outputs.files, 'package.json')
+        run: |
+          curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+          sudo apt-get install -y nodejs
+    
+      - name: Set up Python environment
+        if: contains(steps.check_files.outputs.files, 'requirements.txt')
+        run: |
+          sudo apt-get update
+          sudo apt-get install python3 python3-pip
+    
+      - name: Set up Befunge environment
+        if: contains(steps.check_files.outputs.files, '.bf')
+        run: |
+          # Install Befunge-93 interpreter or compiler
+
+      - name: Build and Push Docker Image
+        run: ./build-push.sh # Custom script to handle different environments
+
+      - name: Check for whanos.yml
+        id: check_file
+        run: |
+          if [ -f "whanos.yml" ]; then
+            echo "::set-output name=exists::true"
+          else
+            echo "::set-output name=exists::false"
+          fi
+      
+      - name: Deploy to Cluster
+        if: steps.check_file.outputs.exists == 'true'
+        run: ./deploy-cluster.sh # Custom script to deploy to cluster
+            
