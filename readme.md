@@ -9,11 +9,7 @@ Push sur notre repos, Github action va démarrer jenkins.
 3 Jobs, dont 1 qui permet de recup un repos, on build l'image et run sur le cluster.
 
 ## Cluster Kube
-Lien avec Jenkins qui a le droit d'envoyer les images et de run sur le cube,
-
-Jenkins, pour recup un repo github, avec les job adapter,
-
-Créer une image avec les fichier, lier avec le cluster
+Lien avec Jenkins qui a le droit d'envoyer les images et de run sur le cube, Jenkins, pour recup un repo github, avec les job adapter, créer une image avec les fichier, lier avec le cluster.
 
 ### WHANOS-COMPATIBLE REPOSITORY SPECIFICATIONS
 In order for a repository to be usable within the Whanos infrastructure, it must contain a single application (written in a supported language), whose source code and resources are in an app directory placed at the root of the repository.<br/>
