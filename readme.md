@@ -39,7 +39,7 @@ The Jenkins instance must meet the specifications detailled below.<br/>
 
 ### USERS
 Signing up must be disallowed.<br/>
-A user named Admin must be created and must have:<br/>
+A user named Admin must be created and must have:
   - an id admin;<br/>
   - all the rights.<br/>
 Further users can be created if desired.<br/>
