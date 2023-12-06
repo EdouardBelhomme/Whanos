@@ -26,11 +26,11 @@ This section details the structure of the repositories that are considered compa
 
 ### SUPPORTED LANGUAGES
 The following languages must be supported by your Whanos infrastructure:<br/>
-• C;<br/>
-• Java;<br/>
-• JavaScript;<br/>
-• Python;<br/>
-• Befunge.<br/>
+  • C;<br/>
+  • Java;<br/>
+  • JavaScript;<br/>
+  • Python;<br/>
+  • Befunge.<br/>
 
 ### JENKINS INSTANCE
 In order for the applications to be automatically containerized and deployed, you will use Jenkins.<br/>
@@ -40,30 +40,30 @@ The Jenkins instance must meet the specifications detailled below.<br/>
 ### USERS
 Signing up must be disallowed.<br/>
 A user named Admin must be created and must have:<br/>
-- an id admin;<br/>
-- all the rights.<br/>
+  - an id admin;<br/>
+  - all the rights.<br/>
 Further users can be created if desired.<br/>
 
 ### FOLDERS
 WHANOS BASE IMAGES<br/>
-• Is named Whanos base images.<br/>
-• Is at root.<br/>
+  • Is named Whanos base images.<br/>
+  • Is at root.<br/>
 PROJECTS<br/>
-• Is named Projects.<br/>
-• Is at root.<br/>
+  • Is named Projects.<br/>
+  • Is at root.<br/>
 
 ### JOBS
 Each of the following jobs is expected to be enabled and to be a freestyle job.<br/>
 WHANOS BASE IMAGES BUILD JOBS<br/>
 For each supported language, a job must be created, and must:<br/>
-• be named like the language’s base image name (e.g.: whanos-haskell);<br/>
-• be in the Whanos base images folder;<br/>
-• build the corresponding base image so that it is available for the Jenkins instance host to use.<br/>
+  • be named like the language’s base image name (e.g.: whanos-haskell);<br/>
+  • be in the Whanos base images folder;<br/>
+  • build the corresponding base image so that it is available for the Jenkins instance host to use.<br/>
 
 ### BUILD ALL BASE IMAGES
-• Is named Build all base images.<br/>
-• Is located in the Whanos base images folder.<br/>
-• When executed, triggers all base images build jobs.<br/>
+  • Is named Build all base images.<br/>
+  • Is located in the Whanos base images folder.<br/>
+  • When executed, triggers all base images build jobs.<br/>
 
 ### LINK-PROJECT
 • Is named link-project.<br/>
@@ -74,12 +74,12 @@ a job with the specifications listed below.<br/>
 
 ### JOBS CREATED BY THE link-project JOB
 Each job created by the link-project job:<br/>
-• Is in the Projects folder.<br/>
-• Checks every minute for changes in the repository.<br/>
-• When a change is detected:<br/>
-• containerizes the respository’s application according to the specifications described in the Whanos<br/>
+  • Is in the Projects folder.<br/>
+  • Checks every minute for changes in the repository.<br/>
+  • When a change is detected:<br/>
+  • containerizes the respository’s application according to the specifications described in the Whanos<br/>
 images specifications section;<br/>
-• if applicable, deploys the application into a Kubernetes cluster (see below).<br/>
+  • if applicable, deploys the application into a Kubernetes cluster (see below).<br/>
 
 
 cluster en fonction de si il y a un fichier whanos.yml
