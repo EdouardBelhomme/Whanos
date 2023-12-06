@@ -3,15 +3,15 @@
 Github Action -> Jenkins -> Deploiement d'un container docker dans le cluster kubernetes.
 
 ## Github Action
-    Push sur notre repos,
-    Github action va démarrer jenkins.
+Push sur notre repos,
+Github action va démarrer jenkins.
 
 ## Jenkins
-    3 Jobs, dont 1 qui permet de recup un repos,
-    on build l'image et run sur le cluster.
+3 Jobs, dont 1 qui permet de recup un repos,
+on build l'image et run sur le cluster.
 
 ## Cluster Kube
-    Lien avec Jenkins qui a le droit d'envoyer les images et de run sur le cube,
+Lien avec Jenkins qui a le droit d'envoyer les images et de run sur le cube,
 
 
 Jenkins, pour recup un repo github,
@@ -21,35 +21,29 @@ créer une image avec les fichier,
 lier avec le cluster
 
 ### WHANOS-COMPATIBLE REPOSITORY SPECIFICATIONS
-    In order for a repository to be usable within the Whanos infrastructure, it must contain a single application
-    (written in a supported language), whose source code and resources are in an app directory placed at the
-    root of the repository.
-    This section details the structure of the repositories that are considered compatible with
-    the infrastructure to be created, not the delivery repository in which you will have to turn
-    your project in.
+In order for a repository to be usable within the Whanos infrastructure, it must contain a single application
+(written in a supported language), whose source code and resources are in an app directory placed at the root of the repository.
+This section details the structure of the repositories that are considered compatible with the infrastructure to be created, not the delivery repository in which you will have to turn your project in.
 
 ### SUPPORTED LANGUAGES
-    The following languages must be supported by your Whanos infrastructure:
-    • C;
-    • Java;
-    • JavaScript;
-    • Python;
-    • Befunge.
+The following languages must be supported by your Whanos infrastructure:
+• C;
+• Java;
+• JavaScript;
+• Python;
+• Befunge.
 
 ### JENKINS INSTANCE
-    In order for the applications to be automatically containerized and deployed, you will use Jenkins.
-    The Jenkins Configuration as Code approach, which you used in the my_marvin project,
-    is not mandatory for this project, but is still a great approach for you to use, since having
-    an entire configuration just within a file greatly helps in setting up and deploying the
-    Jenkins instance.
-    The Jenkins instance must meet the specifications detailled below.
+In order for the applications to be automatically containerized and deployed, you will use Jenkins.
+The Jenkins Configuration as Code approach, which you used in the my_marvin project, is not mandatory for this project, but is still a great approach for you to use, since having an entire configuration just within a file greatly helps in setting up and deploying the Jenkins instance.
+The Jenkins instance must meet the specifications detailled below.
 
 ### USERS
-    Signing up must be disallowed.
-    A user named Admin must be created and must have:
-    - an id admin;
-    - all the rights.
-    Further users can be created if desired.
+Signing up must be disallowed.
+A user named Admin must be created and must have:
+- an id admin;
+- all the rights.
+Further users can be created if desired.
 
 ### FOLDERS
     WHANOS BASE IMAGES
